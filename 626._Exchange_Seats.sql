@@ -1,4 +1,5 @@
 #Using multiple subquery
+
 select s1.id, 
 case
     when s1.id%2 = 0 then (select student from Seat as s2 where s2.id = s1.id-1)
@@ -9,6 +10,7 @@ from Seat as s1;
 
 
 #Easy solution
+
 select
 case
     when id% 2 <> 0 and id = (select count(*) from Seat) then id
